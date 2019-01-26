@@ -1,12 +1,121 @@
-<!DOCTYPE html>
-<html lang="en">
+<!--
+## Introduction
+
+An AMP HTML tutorial - learn the different building blocks of an AMP HTML file. AMP HTML is entirely built on existing web technologies. It achieves reliable performance by restricting some parts of HTML, CSS and JavaScript. To make up for those limitations AMP HTML defines a set of custom elements for rich content beyond basic HTML. This samples shows what's necessary to create a valid AMP HTML file.
+-->
+<!-- -->
+<!-- Doctype declaration is required. -->
+<!doctype html>
+<!-- This tells everyone that this is an AMP file. `<html amp>` works too. -->
+<html ⚡>
+<!-- ## Head -->
+<!-- -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+  <!-- The charset definition must be the first child of the `<head>` tag. -->
+  <meta charset="utf-8">
+  <title>UTC</title>
+  <link rel="shortcut icon" href="Logo pequeño.png" type="image/x-icon">
+  <!-- The AMP runtime must be loaded as the second child of the `<head>` tag.-->
+  <script async src="https://cdn.ampproject.org/v0.js"></script>
+  <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+  <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+  <!--
+    AMP HTML files require a canonical link pointing to the regular HTML. If no HTML version exists, it should point to itself.
+  -->
+  <link rel="canonical" href="https://ampbyexample.com/introduction/hello_world/">
+  <!--
+    AMP HTML files require a viewport declaration. It's recommended to include initial-scale=1.
+  -->
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+  <!--
+    CSS must be embedded inline.
+  -->
+  <style amp-custom>
+      @media (max-width: 375px) { .routers a { display: none  } }
+      *{font-family: "avenir"}
+      a{color: black; text-decoration: none}
+      a:hover { cursor:alias }
+    .barra{height: 60px; padding: 1%; display:flex; justify-content: space-between; align-items: flex-start; }
+    .ingreso{font-size: 10px}
+    .campus{font-size: 10px}
+    .hamburguer{font-size: 15px;}
+    .menu-icon{ padding: 3px; height: 20px ;border: 5px; border:solid 1px black; border-radius: 2.5%}
+    .routers { display: flex; justify-content: center; width: 100%; height: 100%; padding: 10px; }
+    .routers * { margin-right: 30px; }
+    .menu{width: 25%;}
+     button{margin: 5px;}
+    .banner1{background-image:url("check-class-desk-7103.jpg"); background-size: cover; font-size: 20px; display:flex;justify-content: center; align-items: center; }
+    .banner2{background-image:url("books.jpg"); background-size: cover; font-size: 20px; display:flex;justify-content: center; align-items: center; }
+    .banner3{background-image:url("cafe.jpeg"); background-size: cover; font-size: 20px; display:flex;justify-content: center; align-items: center; }
+    .layout{background-color:rgba(255,255,255,.5); width: 100%; height: 100%; padding: 15%;display:flex;justify-content: center; align-items: center; }
+    @media(max-width:320px){ .menu{ width: 50%;}}
+    .ayuda{font-size: 15px; display:flex;justify-content: center; align-items: center; padding: 2%;}
+
+
+
+  </style>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"> 
+  <!--
+    The AMP boilerplate.
+  -->
+  <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
 </head>
+<!-- ## Body -->
+<!-- -->
 <body>
-    <p>Hola</p>
+       <nav class="barra">
+           <img src="Logo grande.png" alt="logo" width="70px" weight="50px">
+           <span class="routers">
+                <span class="ingreso"> <a href="#">Ingreso alumnos</a> </span>
+                <span class="campus"> <a href="#">Cuál es tu campus: Toluca</a> </span>
+            </span>
+            <span class="menu-icon" on='tap:sidebar1.toggle'><i class="fas fa-bars hamburguer"></i></span>
+
+        <amp-sidebar id="sidebar1" layout="nodisplay" side="right" class="menu">
+            <ul>
+                <li>Nosotros</li>
+                <li><a href="#idTwo" on="tap:idTwo.scrollTo">Admisiones</a></li>
+                <li>Oferta</li>
+                <li><a href="#idFour" on="tap:idFour.scrollTo"></a>Planteles</li>
+                <li>Comunidad</li>
+                <li>Servicios</li>
+                <li>Contacto</li>
+            </ul>
+        </amp-sidebar>
+       </nav>
+       
+
+  <amp-carousel width="400" height="150" layout="responsive" type="slides" autoplay delay="4000">
+      <div class="banner1">
+            <div class="layout">
+                Descubre tu potencial: Haz tu test de personalidad ¡AQUI!
+            </div>
+      </div>
+      <div class="banner2">
+            <div class="layout">
+                    Conoce nuestros programas, precios y facilidades
+            </div>
+        </div>
+        <div class="banner3">
+               <div class="layout">
+                    Conoce nuestros programas, precios y facilidades
+               </div>
+            </div>
+      </amp-carousel>
+
+      <h1 class="ayuda">
+            ¿Cómo te podemos ayudar?
+          </h1>
+
+          <p class="ayuda">
+                La Universidad Tres Culturas (UTC) tiene por objetivo brindar una opción educativa a los jóvenes que buscan insertarse en el mercado laboral, formando profesionistas críticos, competitivos y responsables con el desarrollo integral de sus comunidades.
+          </p>
+
+      <div amp-fx="fade-in" data-margin-start="20%">
+            <amp-img width="60" height="90" layout="responsive" src="https://picsum.photos/1600/900?image=1069"></amp-img>
+          </div>
+
 </body>
 </html>
+
+
