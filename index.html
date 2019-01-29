@@ -6,32 +6,28 @@ An AMP HTML tutorial - learn the different building blocks of an AMP HTML file. 
 <!-- -->
 <!-- Doctype declaration is required. -->
 <!doctype html>
-<!-- This tells everyone that this is an AMP file. `<html amp>` works too. -->
+
 <html ⚡>
-<!-- ## Head -->
-<!-- -->
+
 <head>
-  <!-- The charset definition must be the first child of the `<head>` tag. -->
+ 
   <meta charset="utf-8">
   <title>UTC</title>
   <link rel="shortcut icon" href="Logo pequeño.png" type="image/x-icon">
-  <!-- The AMP runtime must be loaded as the second child of the `<head>` tag.-->
+
   <script async src="https://cdn.ampproject.org/v0.js"></script>
   <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
   <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
-  <!--
-    AMP HTML files require a canonical link pointing to the regular HTML. If no HTML version exists, it should point to itself.
-  -->
+  <script async custom-element="amp-fx-collection" src="https://cdn.ampproject.org/v0/amp-fx-collection-0.1.js"></script>
+  <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+  
+
   <link rel="canonical" href="https://ampbyexample.com/introduction/hello_world/">
-  <!--
-    AMP HTML files require a viewport declaration. It's recommended to include initial-scale=1.
-  -->
+
   <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-  <!--
-    CSS must be embedded inline.
-  -->
+
   <style amp-custom>
-      @media (max-width: 375px) { .routers a { display: none  } }
+      @media (max-width: 375px) { .routers a { display: none  } .menuayuda span { width: 40vw } }
       *{font-family: "avenir"}
       a{color: black; text-decoration: none}
       a:hover { cursor:alias }
@@ -45,24 +41,39 @@ An AMP HTML tutorial - learn the different building blocks of an AMP HTML file. 
     .menu{width: 25%;}
      button{margin: 5px;}
     .banner1{background-image:url("check-class-desk-7103.jpg"); background-size: cover; font-size: 20px; display:flex;justify-content: center; align-items: center; }
-    .banner2{background-image:url("books.jpg"); background-size: cover; font-size: 20px; display:flex;justify-content: center; align-items: center; }
-    .banner3{background-image:url("cafe.jpeg"); background-size: cover; font-size: 20px; display:flex;justify-content: center; align-items: center; }
+    .banner2{background-image:url("cafe.jpeg"); background-size: cover; font-size: 20px; display:flex;justify-content: center; align-items: center; }
+    .banner3{background-image:url("alumnos.jpg"); background-size: cover; font-size: 20px; display:flex;justify-content: center; align-items: center; }
     .layout{background-color:rgba(255,255,255,.5); width: 100%; height: 100%; padding: 15%;display:flex;justify-content: center; align-items: center; }
     @media(max-width:320px){ .menu{ width: 50%;}}
     .ayuda{font-size: 15px; display:flex;justify-content: center; align-items: center; padding: 2%;}
-
+    .menuayuda{height: 30px; padding: 5% 10% 5% 10%; display:flex; justify-content: space-around; align-items: center; flex-wrap: wrap }
+    .menuayuda span { display: flex; align-items: center; justify-content: center; flex-direction: column;  }
+    .iconos{font-size: 4rem}
 
 
   </style>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"> 
-  <!--
-    The AMP boilerplate.
-  -->
   <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
 </head>
-<!-- ## Body -->
-<!-- -->
+
 <body>
+        <amp-analytics type="gtag" data-credentials="include">
+        <script type="application/json">
+        {
+          "vars" : {
+            "gtag_id": "UA-XXXX",
+            "config" : {
+              "GUA-122164195": {
+                "groups": "default",
+                "page_title": "UTC",
+                "page_location": "https://soyjuanabananahacker.github.io/UTC/"
+              }
+            }
+          }
+        }
+        </script>
+        </amp-analytics>
+
        <nav class="barra">
            <img src="Logo grande.png" alt="logo" width="70px" weight="50px">
            <span class="routers">
@@ -88,17 +99,17 @@ An AMP HTML tutorial - learn the different building blocks of an AMP HTML file. 
   <amp-carousel width="400" height="150" layout="responsive" type="slides" autoplay delay="4000">
       <div class="banner1">
             <div class="layout">
-                Descubre tu potencial: Haz tu test de personalidad ¡AQUI!
+                    Descubre tu potencial: Haz tu test de personalidad ¡AQUI!
             </div>
       </div>
       <div class="banner2">
             <div class="layout">
-                    Conoce nuestros programas, precios y facilidades
+                    ¡Conoce nuestros programas, precios y facilidades!
             </div>
         </div>
         <div class="banner3">
                <div class="layout">
-                    Conoce nuestros programas, precios y facilidades
+                    Ponte en contacto con nuestros alumnos y despeja tus dudas
                </div>
             </div>
       </amp-carousel>
@@ -111,10 +122,30 @@ An AMP HTML tutorial - learn the different building blocks of an AMP HTML file. 
                 La Universidad Tres Culturas (UTC) tiene por objetivo brindar una opción educativa a los jóvenes que buscan insertarse en el mercado laboral, formando profesionistas críticos, competitivos y responsables con el desarrollo integral de sus comunidades.
           </p>
 
-      <div amp-fx="fade-in" data-margin-start="20%">
-            <amp-img width="60" height="90" layout="responsive" src="https://picsum.photos/1600/900?image=1069"></amp-img>
-          </div>
-
+          <div class="menuayuda" amp-fx="fade-in" data-duration="2000ms">
+              <span>
+                  <i class="fas fa-glasses iconos"></i>
+                  <a href="#"><h5>Test Personalidad</h5></a>
+                  
+              </span>
+              <span>
+                  <i class="fas fa-book-reader iconos"></i>
+                  <a href="#"><h5>Programas</h5></a>
+              </span>
+              <span>
+                <i class="fas fa-building iconos"></i>
+                <a href="#"><h5>Campus</h5></a>
+             </span>
+             <span>
+                <i class="fas fa-user-circle iconos"></i>
+                <a href="#"><h5>Contacto alumnos</h5></a>
+            </span>
+            <span>
+                <i class="fas fa-file-signature iconos"></i>
+                <a href="#"><h5>Postulate</h5></a>
+            </span>
+              </div>
+       
 </body>
 </html>
 
