@@ -75,13 +75,15 @@ An AMP HTML tutorial - learn the different building blocks of an AMP HTML file. 
         </amp-analytics>
 
        <nav class="barra">
-           <img src="Logo grande.png" alt="logo" width="70px" weight="50px">
+           <amp-img src="Logo grande.png" alt="logo" width="70px" height="50px"></amp-img>
            <span class="routers">
                 <span class="ingreso"> <a href="#">Ingreso alumnos</a> </span>
                 <span class="campus"> <a href="#">Cuál es tu campus: Toluca</a> </span>
             </span>
-            <span class="menu-icon" on='tap:sidebar1.toggle'><i class="fas fa-bars hamburguer"></i></span>
+            <span tabindex="1" role="on" class="menu-icon" on='tap:sidebar1.toggle'><i class="fas fa-bars hamburguer"></i></span>
 
+       
+       </nav>
         <amp-sidebar id="sidebar1" layout="nodisplay" side="right" class="menu">
             <ul>
                 <li>Nosotros</li>
@@ -93,8 +95,6 @@ An AMP HTML tutorial - learn the different building blocks of an AMP HTML file. 
                 <li>Contacto</li>
             </ul>
         </amp-sidebar>
-       </nav>
-       
 
   <amp-carousel width="400" height="150" layout="responsive" type="slides" autoplay delay="4000">
       <div class="banner1">
